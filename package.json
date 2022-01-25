@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/bbadaso/tinyapp/issues"
   },
-  "homepage": "https://github.com/bbadaso/tinyapp#readme"
+  "homepage": "https://github.com/bbadaso/tinyapp#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
