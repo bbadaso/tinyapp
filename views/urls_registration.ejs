@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    button {
+      background-color: rgb(43, 199, 186);
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-size: 24px;
+    }
+    form,
+    h2 {
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+
+    <title>Register -Tiny App</title>
+  </head>
+
+  <body>
+    <%- include('partials/_header'); %>
+    <h2>Create Account</h2>
+    <form action="/register" method="post">
+      <input type="email" name="email" placeholder="Enter your e-mail" />
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter your password"
+      />
+      <button type="submit" class="btn btn-outline-primary">Register</button>
+    </form>
+  </body>
+</html>

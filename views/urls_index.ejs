@@ -29,9 +29,17 @@
             <td>
               <form method="GET" action="/urls/<%= url %>">
                 <input type="submit" value="Edit" class="btn btn-outline-primary">
+      
+                
               </form>
             </td>
-            <td><form method="POST" action="/urls/<%=url%>/delete"><button class="btn btn-outline-danger">Delete</button></form></td>
+            <td>
+              <!-- DELETE FORM -->
+              <form method="POST" action="/urls/<%= url%>/delete">
+                <input type="submit" value="Delete" class="btn btn-outline-danger">
+                
+              </form>
+            </td>
           </tr>
         <% } %>
       </tbody>

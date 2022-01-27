@@ -6,13 +6,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/urls">My URLs</a>
-        <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
+        <a class="btn btn-success" href="/urls">My URLs</a>
+        <a class="btn btn-success" href="/urls/new">Create New URL</a>
       </div>
     </div>
-    <form action=" /login" method="post">
-      <input type="text" name="username" placeholder=" Enter Username "value="">          
-       <button type="submit">Sign In</button>           
+    
+    <% if (username) { %>
+      <%= username %>
+      <form action="/logout" method="post">
+        <label for="username"><%= username["email"] %></label>
+        <button type="submit" name="logout">Logout</button>
       </form>
+      <% } else { %>
+      <div>
+        <form action="/login" method="post">
+          <input type="text" name="username" placeholder="username"/>
+          <button type="submit"> login</button>
+          </form>
+        <!-- <a href="/register" class="btn btn-outline-dark">Register</a>
+        <a href="/login" class="btn btn-outline-dark">Login</a> -->
+      </div>
+      <% } %>
+      
   </nav>
 </header>
