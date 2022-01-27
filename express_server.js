@@ -2,6 +2,14 @@ const express = require("express");
 const app = express();
 const PORT = 8080; // default port 8080
 
+var cookieParser = require('cookie-parser')
+app.use(cookieParser())
+
+
+
+// curl command that sends an HTTP request with two cookies
+// curl http://127.0.0.1:8080 --cookie "Cho=Kim;Greet=Hello"
+
 app.set("view engine", "ejs");
 
 const generateRandomString = function() {
@@ -36,6 +44,10 @@ app.get("/urls", (req, res) => {
 app.get("/u/:shortURL", (req, res) => {
   const longURL = urlDatabase[req.params.shortURL];
   res.redirect(longURL);
+});
+
+app.post("/login", (req, res) => {
+  console.log(req.cookies)
 });
 
 app.post("/urls", (req, res) => {
