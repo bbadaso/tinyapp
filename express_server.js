@@ -66,8 +66,19 @@ app.get("/u/:shortURL", (req, res) => {
 });
 
 app.get("/urls/new", (req, res) => {
-  const templateVars = { 
-    username: req.cookies["user_id"]
+
+  let obj1 = {};
+  const loginID = req.cookies.id;
+  for (let url in urlDatabase) {
+    if (urlDatabase[url].urlID === loginID) {
+      obj1[url] = urlDatabase[url];
+    }
+  }
+  const userId = req.cookies["user_id"]
+  const user = users[userId];
+  let templateVars = {
+    urls: obj1,
+    user,
   };
   res.render("urls_new", templateVars);
 });
@@ -107,15 +118,16 @@ app.get("/login", (req, res) => {
 app.post("/login", (req, res) => {
   let email = req.body.email;
   const password = req.body.password;
-  console.log(password);
+  console.log(email);
   for (let key in users) {
+  console.log (users[key].email)
     if (users[key].email === email && users[key].password === password) {
       res.cookie("user_id", key);
       res.redirect("/urls");
     }
   }
   res.status(400);
-  res.send("Login failed");
+  res.send("Login failed"); 
 });
 
 app.post("/logout", (req, res) => {
@@ -142,6 +154,7 @@ app.post("/register", (req, res) => {
     res.status(400).send("Email already exists. Please login!!");
   } else {
     users[userID] = {
+      password: password,
       id: userID,
       email: email,
     };
