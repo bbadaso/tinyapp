@@ -10,12 +10,14 @@
   <div class="card text-center">
       <div class="card-header"></div>
       <div class="card-body">
-        <h5 class="card-title">TinyURL for: <%= longURL %></h5>
-        <p class="card-text">Short URL: <a href="/u/<%= shortURL %>"><%= shortURL %></a></p>
-        <form action="/urls/<%= shortURL %>/update" method="post">
-            <label for=""> Enter Long URL</label>
-            <input type="text" name="longURL" placeholder=" Enter Long URL"value="">
-            <button type="submit">Update</button>
+   <h2>Create Account</h2>
+        <form action="/register" method="post">
+          <label for=""> Enter Email Address</label>
+          <input type="email" name="email" placeholder=" Enter Email ">
+          <br>
+          <label for=""> Enter Password </label>
+          <input type="password" name="password" placeholder=" Enter Password ">
+          <button type="submit" class="btn btn-primary">Complete Registration</button>
           </form>
       </div>
     <div class="card-footer text-muted"></div>

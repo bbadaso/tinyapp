@@ -3,46 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>TinyApp</title>
 </head>
-
 <body>
-  <%- include('partials/_header') %>
+    <%- include('partials/_header') %>
   <main style="margin: 1em;">
     <h3>My URLs</h3>
+    <%= greeting %>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">Short URL</th>
           <th scope="col">Long URL</th>
-          <th scope="col">Edit</th>
           <th scope="col">Delete</th>
+          <th scope="col">Update</th>
         </tr>
       </thead>
       <tbody>
-        <% for(let url in urls) { %>
+        <% Object.keys(urls).forEach((url)=>{ %>
           <tr>
-            <td><%= url %></td>
-            <td><%= urls[url] %></td>
-            <td>
-              <form method="GET" action="/urls/<%= url %>">
-                <input type="submit" value="Edit" class="btn btn-outline-primary">
-      
-                
-              </form>
+            <td><%= url%></td>
+            <td><%= urls[url].longURL %></td>
+            <td><form method="POST" action="/urls/<%= url %>/delete"><button type="submit">Delete</button></form>
             </td>
-            <td>
-              <!-- DELETE FORM -->
-              <form method="POST" action="/urls/<%= url%>/delete">
-                <input type="submit" value="Delete" class="btn btn-outline-danger">
-                
-              </form>
-            </td>
+            <td> 
+            <a class="btn btn-primary" href="/urls/<%= url %>">Update </a>
+          </td>
           </tr>
-        <% } %>
+        <% }) %>
       </tbody>
     </table>
   </main>
