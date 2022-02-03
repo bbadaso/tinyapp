@@ -17,6 +17,6 @@ Install all dependencies (using the npm install command).
 Run the development web server using the node express_server.js command.
 
 
-!["Screenshot of Login page"](https://github.com/bbadaso/tinyapp/blob/feature/user-registration/docs/Login%20Page%20.png)
+!["Screenshot of Login page"](https://github.com/bbadaso/tinyapp/blob/master/docs/Urls.png)
 
-!["Screenshot of URLS page"](https://github.com/bbadaso/tinyapp/blob/feature/user-registration/docs/Urls.png)
+!["Screenshot of URLS page"](https://github.com/bbadaso/tinyapp/blob/master/docs/register.png)
